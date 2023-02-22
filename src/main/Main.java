@@ -19,8 +19,8 @@ import main.vehicles.*;
 public class Main {
     private void start() {
         Vehicle [] vehicles = new Vehicle[50];
-        vehicles[1] = new Car("white","7851FFF");
-        vehicles[2] = new Motorbike("red", "9899PLM");
+        vehicles[1] = new Car("Peugeot","white","7851FFF");
+        vehicles[2] = new Motorbike("BMW","red", "9899PLM");
     }
 
     public static void main(String[] args) {

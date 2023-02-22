@@ -4,8 +4,8 @@ public class Van extends Car {
 
     private int extraPassengers;
 
-    public Van(String colour, String carLicenseNumber, int extraPassengers) {
-        super(colour, carLicenseNumber);
+    public Van(String brand, String colour, String carLicenseNumber, int extraPassengers) {
+        super(brand, colour, carLicenseNumber);
         this.extraPassengers = extraPassengers;
     }
 
