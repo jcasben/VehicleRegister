@@ -6,7 +6,7 @@ public class Vehicle {
     private int passengers;
     private String colour;
 
-    public Vehicle(int wheels, int passengers, String colour) {
+    public Vehicle(String type, int wheels, int passengers, String colour) {
         this.wheels = wheels;
         this.passengers = passengers;
         this.colour = colour;
