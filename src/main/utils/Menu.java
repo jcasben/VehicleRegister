@@ -2,6 +2,10 @@ package main.utils;
 
 import java.util.Scanner;
 
+/**
+ * This class is used to show the Menus of the application and to call the actions which are related to each option.
+ * To use it, an object of this class has to be created and then, use the wanted method on it.
+ */
 public class Menu {
 
     private Scanner IN;
@@ -10,6 +14,10 @@ public class Menu {
         IN = in;
     }
 
+    /**
+     * Shows the Main menu of the application. It will ask the user to choose an option. If the user chooses the option
+     * "exit" or "e", the execution of the application will end.
+     */
     public void mainMenu() {
         boolean mMenu = true;
         String opt;
@@ -36,16 +44,21 @@ public class Menu {
                 case "4":       //Delete register
                     break;
 
-                case "e":       //Exit
+                case "e":       //Exit program
                     mMenu = false;
                     break;
 
                 default:
-                    System.out.println("Invalid option. Please, try again.");
+                    System.err.println("Invalid option. Please, try again.");
             }
         }
     }
 
+    /**
+     * Shows the menu where you can choose which type of vehicle the user wants to add to the register.
+     * It will wait to the user to choose the option. If he chooses the option "return" or "r", it will show the main
+     * menu again. It doesn't receive any parameters.
+     */
     private void addRegisterMenu() {
         boolean arMenu = true;
         String opt;
@@ -66,9 +79,12 @@ public class Menu {
                 case "3":       //Add Motorbike
                     break;
 
-                case "r":
+                case "r":       //Return to the main menu
+                    arMenu = false;
                     break;
-            }
+
+                default:
+                    System.err.println("Invalid option. Please, try again.");            }
         }
     }
 }
