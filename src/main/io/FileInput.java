@@ -1,51 +1,50 @@
 package main.io;
 
-import main.vehicles.*;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 
 public class FileInput {
 
-    private FileWriter fw = null;
-    BufferedWriter writer = null;
+    private FileInputStream fis;
+    private ObjectInputStream reader;
 
-    private void openWriter() {
-        try {
-            fw = new FileWriter("register.txt");
-            writer = new BufferedWriter(fw);
-        } catch(IOException ioException) {
-            System.err.println("ERROR: " + ioException.getMessage());
-        }
-    }
-
-    private void closeWriter() {
-        try {
-            writer.close();
-            fw.close();
-        } catch(IOException ioException) {
-            System.err.println("ERROR: " + ioException.getMessage());
-        } finally {
-          try{
-              writer.close();
-              fw.close();
-          } catch(IOException ioException) {
-              System.err.println("ERROR: " + ioException.getMessage());
-          }
-        }
-    }
-
-    private void wrt(String phrase) {
+    public void openReader() {
         try{
-            writer.write(phrase);
-        } catch(IOException ioException) {
-           System.err.println("ERROR: " + ioException.getMessage());
+            fis = new FileInputStream("resources/register.dat");
+            reader = new ObjectInputStream(fis);
+        } catch(IOException ioEx) {
+            System.err.println("ERROR: " + ioEx.getMessage());
         }
     }
 
-    public void saveVehicle(String type, Vehicle vehicle) {
-        openWriter();
-        wrt(type + "");
-        closeWriter();
+    public void closeReader() {
+        try{
+            reader.close();
+            fis.close();
+        } catch (IOException ioEx) {
+            System.err.println("ERROR: " + ioEx.getMessage());
+        } finally {
+            try{
+                reader.close();
+                fis.close();
+            } catch (IOException ioEx) {
+                System.err.println("ERROR: " + ioEx.getMessage());
+            }
+        }
+    }
+
+    public void rdObj() {
+        Object obj;
+        try {
+            obj = reader.readObject();
+            while (obj != null) {
+                System.out.println(obj);
+                obj = reader.readObject();
+            }
+        } catch (ClassNotFoundException | IOException cnfEx) {
+            System.err.println("ERROR: " + cnfEx.getMessage());
+        }
     }
 }
