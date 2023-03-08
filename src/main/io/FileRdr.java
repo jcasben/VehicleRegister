@@ -12,9 +12,9 @@ public class FileRdr {
 
     /**
      * Opens the specified file to enable reading from it.
-     * @param file
+     * @param file name of the file to be read.
      */
-    private void openRdr(String file) {
+    public void openRdr(String file) {
         try {
            fr = new FileReader(file);
            bfreader = new BufferedReader(fr);
@@ -26,7 +26,7 @@ public class FileRdr {
     /**
      * Closes the opened file to lecture.
      */
-    private void closeRdr() {
+    public void closeRdr() {
         try {
             bfreader.close();
             fr.close();
@@ -34,7 +34,6 @@ public class FileRdr {
             System.err.println("ERROR: " + ioEx.getMessage());
         } finally {
             try {
-                bfreader.close();
                 fr.close();
             } catch(IOException ioEx) {
                 System.err.println("ERROR: " + ioEx.getMessage());
@@ -42,8 +41,17 @@ public class FileRdr {
         }
     }
 
+    /**
+     * Uses the method readLine() to read from a text file
+     * @return A String that represents a line of the text file
+     */
     public String rdr() {
-
-        return "";
+        String tmp = "";
+        try {
+            tmp = bfreader.readLine();
+        } catch (IOException ioEx) {
+            System.err.println("ERROR: " + ioEx.getMessage());
+        }
+        return tmp;
     }
 }
