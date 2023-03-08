@@ -1,6 +1,7 @@
 package main.utils;
 
 import java.util.Scanner;
+import main.utils.Register;
 
 /**
  * This class is used to show the Menus of the application and to call the actions which are related to each option.
@@ -8,6 +9,7 @@ import java.util.Scanner;
  */
 public class Menu {
 
+    private Register register = new Register();
     private Scanner IN;
 
     public Menu(Scanner in) {
