@@ -3,7 +3,7 @@
  *  Project: VehicleRegister
  *  Author: jcasben
  *  Creation date: 18/02/2023
- *  Last update: 18/02/2023
+ *  Last update: 08/03/2023
  *  Description: Development of a vehicle database, where the user will be able to create new registers of vehicles
  *               introducing the type of vehicle, the brand, colour and the date of fabrication. The user will be also
  *               capable of deleting registers and also editing them.
