@@ -1,11 +1,10 @@
 package main.io;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
-public class FileInput {
+public class ObjectReader {
 
     private FileInputStream fis;
     private ObjectInputStream reader;
