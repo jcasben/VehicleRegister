@@ -2,6 +2,7 @@ package main.utils;
 
 import java.util.Scanner;
 import main.utils.Register;
+import main.utils.DataEntry;
 
 /**
  * This class is used to show the Menus of the application and to call the actions which are related to each option.
@@ -10,6 +11,7 @@ import main.utils.Register;
 public class Menu {
 
     private Register register = new Register();
+    private DataEntry entry = new DataEntry();
     private Scanner IN;
 
     public Menu(Scanner in) {
@@ -73,6 +75,7 @@ public class Menu {
         while(arMenu) {
             switch (opt) {
                 case "1":       //Add Car
+                    register.addCar(entry.askBrand("car"), "","");
                     break;
 
                 case "2":       //Add Van
