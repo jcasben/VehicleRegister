@@ -4,9 +4,9 @@ import java.io.*;
 
 /**
  * This class is used to do the output of Objects to a text file, where they will be managed. With it, you can write
- * any type of object.
+ * any type of object in a text file.
  */
-public class FileOutput {
+public class ObjectWriter {
 
     private FileOutputStream fos;
     private ObjectOutputStream writer;
@@ -16,7 +16,7 @@ public class FileOutput {
      * ObjectOutputStream.
      * @param file represents the name of the specified file.
      */
-    private void openWriter(String file) {
+    public void openWriter(String file) {
         try {
             fos = new FileOutputStream(file,true);
             writer = new ObjectOutputStream(fos);
@@ -31,7 +31,7 @@ public class FileOutput {
      * This method closes the writing on the file specified on openWriter(). It has to be used after writing all that
      * the user wants to write.
      */
-    private void closeWriter() {
+    public void closeWriter() {
         try {
             writer.close();
             fos.close();
@@ -50,11 +50,13 @@ public class FileOutput {
      * This method can write in a text file an object of any type. This object must implement the interface Serializable.
      * @param obj
      */
-    private void wrtObj(Object obj) {
+    public void wrtObj(Object obj) {
+        openWriter("resources/register.dat");
         try{
             writer.writeObject(obj);
         } catch(IOException ioException) {
            System.err.println("ERROR: " + ioException.getMessage());
         }
+        closeWriter();
     }
 }
