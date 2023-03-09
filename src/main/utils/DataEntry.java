@@ -59,4 +59,15 @@ public class DataEntry {
 
         return colour;
     }
+
+    private boolean validateColour(String colour) {
+        boolean tmp = false;
+        String tmpString = "";
+
+        rdr.openRdr("resources/vehicles/colours.txt");
+        tmpString = rdr.rdr();
+
+
+        return tmp;
+    }
 }
