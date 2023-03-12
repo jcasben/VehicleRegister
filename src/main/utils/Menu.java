@@ -75,21 +75,21 @@ public class Menu {
         while(arMenu) {
             switch (opt) {
                 case "1":       //Add Car
-                    register.addCar(entry.askBrand("car"), "","");
+                    register.addCar(entry.askBrand("car"), entry.askColour(), entry.askCarLicenseNumber());
                     break;
-
                 case "2":       //Add Van
+                    register.addVan(entry.askBrand("car"),entry.askColour(),entry.askCarLicenseNumber(),
+                                    entry.askExtraPassengers());
                     break;
-
                 case "3":       //Add Motorbike
+                    register.addMotorbike(entry.askBrand("motorbike"),entry.askColour(),entry.askCarLicenseNumber());
                     break;
-
                 case "r":       //Return to the main menu
                     arMenu = false;
                     break;
-
                 default:
-                    System.err.println("Invalid option. Please, try again.");            }
+                    System.err.println("Invalid option. Please, try again.");
+            }
         }
     }
 }
