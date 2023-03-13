@@ -7,7 +7,7 @@ public class Register {
 
     private final Vehicle [] REGISTERED = new Vehicle[10];
     private int inRegister = 0;
-    private ObjectWriter writer = new ObjectWriter();
+    private final ObjectWriter writer = new ObjectWriter();
 
     public void addCar(String brand, String colour, String carLicenseNumber) {
         REGISTERED[inRegister] = new Car(brand, colour, carLicenseNumber);
